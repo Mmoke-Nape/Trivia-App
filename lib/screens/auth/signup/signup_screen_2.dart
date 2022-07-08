@@ -8,16 +8,16 @@ import 'package:trivia_app/widgets/icon_custom_button.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/custom_appbar.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignupScreen2 extends StatefulWidget {
+  const SignupScreen2({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen2> createState() => _SignupScreen2State();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreen2State extends State<SignupScreen2> {
   final emailController = TextEditingController();
-
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    usernameController.dispose();
 
     super.dispose();
   }
@@ -40,38 +41,45 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                const CustomAppbar(text: 'Login'),
+                const CustomAppbar(text: 'Signup'),
                 const SizedBox(height: 20),
-                IconCustomButton(
-                  title: 'Login with Google',
-                  press: () {},
-                  svgIcon: 'assets/icons/socials/google.svg',
-                  color: Colors.white,
-                ),
-                const SizedBox(height: 20),
-                IconCustomButton(
-                  title: 'Login with Facebook',
-                  press: () {},
-                  svgIcon: 'assets/icons/socials/facebook.svg',
-                  color: Colors.blue.shade900,
-                  isDark: true,
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: size.width,
-                  child: Row(
-                    children: const [
-                      Expanded(child: Divider(color: AppColors.grey2)),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          'OR ',
-                          style: TextStyle(color: AppColors.grey2),
-                        ),
-                      ),
-                      Expanded(child: Divider(color: AppColors.grey2)),
-                    ],
+                const Align(
+                    alignment: Alignment.centerLeft, child: Text('Username')),
+                const SizedBox(height: 10),
+                TextFormField(
+                  controller: usernameController,
+                  cursorColor: AppColors.royalBlue,
+                  decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: AppColors.royalBlue, width: 1.5),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    focusColor: AppColors.royalBlue,
+                    hintStyle: TextStyle(color: AppColors.grey2),
+                    hintText: 'Your username',
+                    prefixIcon: Icon(
+                      Icons.person_outline,
+                      color: AppColors.royalBlue,
+                    ),
                   ),
+                  // style: const TextStyle(color: AppColors.grey3),
+                  keyboardType: TextInputType.name,
+                  // autovalidateMode: AutovalidateMode.onUserInteraction,
+                  // validator: (email) =>
+                  //     email != null && !EmailValidator.validate(email)
+                  //         ? 'Enter a valid email'
+                  //         : null,
                 ),
                 const SizedBox(height: 15),
                 const Align(
@@ -85,15 +93,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderSide: BorderSide(color: Colors.white, width: 1.0),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
                     filled: true,
                     fillColor: Colors.white,
                     focusedBorder: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: AppColors.royalBlue, width: 1.5),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1.0),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
                     focusColor: AppColors.royalBlue,
@@ -151,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       : null,
                 ),
                 const SizedBox(height: 20),
-                CustomButton(title: 'Login', press: () {}),
+                CustomButton(title: 'Signup', press: () {}),
                 const SizedBox(height: 20),
                 GestureDetector(
                   onTap: () => Get.toNamed(AppRoutes.resetPasswordRoute),

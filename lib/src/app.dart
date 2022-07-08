@@ -4,14 +4,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trivia_app/constants/app_colors.dart';
+import 'package:trivia_app/screens/auth/new%20password/new_password_screen.dart';
+import 'package:trivia_app/screens/auth/reset%20password/reset_password.dart';
+import 'package:trivia_app/screens/auth/signup/signup_screen_2.dart';
 
 import '../constants/app_routes.dart';
 import '../screens/auth/login/login_screen.dart';
 import '../screens/auth/loginSignup/login_signup_screen.dart';
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
+import '../screens/auth/signup/signup_screen.dart';
 import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -88,21 +89,32 @@ class MyApp extends StatelessWidget {
             //   name: AppRoutes.topLevelRoute,
             //   page: () => const TopLevel(),
             // ),
-            // GetPage(
-            //   name: AppRoutes.signUpRoute,
-            //   page: () => const SignUpScreen(),
-            //   title: 'Signup for an account',
-            // ),
+
             GetPage(
               name: AppRoutes.loginRoute,
               page: () => const LoginScreen(),
               title: 'Login to your account',
             ),
-            // GetPage(
-            //   name: AppRoutes.verifyRoute,
-            //   page: () => const VerificationScreen(),
-            //   title: 'Verify your account',
-            // ),
+            GetPage(
+              name: AppRoutes.signupRoute,
+              page: () => const SignupScreen(),
+              title: 'Signup for an account',
+            ),
+            GetPage(
+              name: AppRoutes.signup2Route,
+              page: () => const SignupScreen2(),
+              title: 'Signup for an account',
+            ),
+            GetPage(
+              name: AppRoutes.resetPasswordRoute,
+              page: () => const ResetPasswordScreen(),
+              title: 'Verify your account',
+            ),
+            GetPage(
+              name: AppRoutes.newPasswordRoute,
+              page: () => const NewPasswordScreen(),
+              title: 'Verify your account',
+            ),
           ],
         );
       },

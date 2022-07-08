@@ -1,9 +1,11 @@
 class AppRoutes {
   static const landingRoute = '/landing';
-  static const signUpRoute = '/signUp';
+  static const signupRoute = '/signUp';
+  static const signup2Route = '/signUp2';
   static const loginRoute = '/login';
   static const verifyRoute = '/verify';
-  static const forgotPasswordRoute = '/forgot_password';
+  static const resetPasswordRoute = '/reset_password';
+  static const newPasswordRoute = '/new_password';
 
   static const topLevelRoute = '/toplevel';
   static const homeRoute = '/home';

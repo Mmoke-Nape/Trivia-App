@@ -1,31 +1,31 @@
+import 'package:flutter/material.dart';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trivia_app/constants/app_routes.dart';
 import 'package:trivia_app/widgets/custom_button.dart';
 import 'package:trivia_app/widgets/icon_custom_button.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../widgets/custom_appbar.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class NewPasswordScreen extends StatefulWidget {
+  const NewPasswordScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final emailController = TextEditingController();
-
+class _NewPasswordScreenState extends State<NewPasswordScreen> {
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    emailController.dispose();
     passwordController.dispose();
+    confirmPasswordController.dispose();
 
     super.dispose();
   }
@@ -40,79 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                const CustomAppbar(text: 'Login'),
-                const SizedBox(height: 20),
-                IconCustomButton(
-                  title: 'Login with Google',
-                  press: () {},
-                  svgIcon: 'assets/icons/socials/google.svg',
-                  color: Colors.white,
-                ),
-                const SizedBox(height: 20),
-                IconCustomButton(
-                  title: 'Login with Facebook',
-                  press: () {},
-                  svgIcon: 'assets/icons/socials/facebook.svg',
-                  color: Colors.blue.shade900,
-                  isDark: true,
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: size.width,
-                  child: Row(
-                    children: const [
-                      Expanded(child: Divider(color: AppColors.grey2)),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          'OR ',
-                          style: TextStyle(color: AppColors.grey2),
-                        ),
-                      ),
-                      Expanded(child: Divider(color: AppColors.grey2)),
-                    ],
+                const CustomAppbar(text: 'Reset Password'),
+                const SizedBox(height: 50),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    'Your new password must be different from previously used passwords',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: AppColors.grey2),
                   ),
                 ),
-                const SizedBox(height: 15),
-                const Align(
-                    alignment: Alignment.centerLeft, child: Text('Email')),
-                const SizedBox(height: 10),
-                TextFormField(
-                  controller: emailController,
-                  cursorColor: AppColors.royalBlue,
-                  decoration: const InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1.0),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: AppColors.royalBlue, width: 1.5),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1.0),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                    focusColor: AppColors.royalBlue,
-                    hintStyle: TextStyle(color: AppColors.grey2),
-                    hintText: 'Your email address',
-                    prefixIcon: Icon(
-                      Icons.email_outlined,
-                      color: AppColors.royalBlue,
-                    ),
-                  ),
-                  // style: const TextStyle(color: AppColors.grey3),
-                  keyboardType: TextInputType.emailAddress,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (email) =>
-                      email != null && !EmailValidator.validate(email)
-                          ? 'Enter a valid email'
-                          : null,
-                ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 40),
                 const Align(
                     alignment: Alignment.centerLeft, child: Text('Password')),
                 const SizedBox(height: 10),
@@ -131,8 +69,39 @@ class _LoginScreenState extends State<LoginScreen> {
                           BorderSide(color: AppColors.royalBlue, width: 1.5),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
-                    border: OutlineInputBorder(
+                    focusColor: AppColors.royalBlue,
+                    hintStyle: TextStyle(color: AppColors.grey2),
+                    hintText: 'Your password',
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: AppColors.royalBlue,
+                    ),
+                  ),
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: true,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Enter at least 6 characters'
+                      : null,
+                ),
+                const SizedBox(height: 20),
+                const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Confrim Password')),
+                const SizedBox(height: 10),
+                TextFormField(
+                  controller: confirmPasswordController,
+                  cursorColor: AppColors.royalBlue,
+                  decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: AppColors.royalBlue, width: 1.5),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
                     focusColor: AppColors.royalBlue,
@@ -151,21 +120,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       : null,
                 ),
                 const SizedBox(height: 20),
-                CustomButton(title: 'Login', press: () {}),
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () => Get.toNamed(AppRoutes.resetPasswordRoute),
-                  child: const Text(
-                    'Forgot password?',
-                    style: TextStyle(
-                      color: AppColors.royalBlue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.only(bottom: 20),
+          child: CustomButton(title: 'Reset Password', press: () {}),
         ),
       ),
     );

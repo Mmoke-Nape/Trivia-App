@@ -4,6 +4,8 @@ import 'package:trivia_app/constants/app_colors.dart';
 import 'package:trivia_app/constants/app_routes.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
+import '../../../widgets/custom_button.dart';
+
 class LoginSignupScreen extends StatelessWidget {
   const LoginSignupScreen({Key? key}) : super(key: key);
 
@@ -61,50 +63,15 @@ class LoginSignupScreen extends StatelessWidget {
                       ),
                       CustomButton(
                         title: 'Create an account',
-                        press: () => Get.toNamed(AppRoutes.signUpRoute),
+                        press: () {
+                          Get.toNamed(AppRoutes.signupRoute);
+                        },
                         isBackFilled: false,
                       ),
                     ],
                   ),
                 )
               ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    Key? key,
-    required this.title,
-    required this.press,
-    this.isBackFilled = true,
-  }) : super(key: key);
-  final String title;
-  final Function() press;
-  final bool isBackFilled;
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        width: size.width,
-        height: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: isBackFilled ? AppColors.royalBlue : AppColors.grey3,
-          // color: ,
-        ),
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(
-              color: isBackFilled ? Colors.white : AppColors.royalBlue,
-              fontWeight: FontWeight.w600,
             ),
           ),
         ),
