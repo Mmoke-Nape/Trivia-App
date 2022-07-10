@@ -4,9 +4,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trivia_app/constants/app_colors.dart';
+import 'package:trivia_app/main_screen.dart';
+import 'package:trivia_app/screens/Discover/discover_screen.dart';
 import 'package:trivia_app/screens/auth/new%20password/new_password_screen.dart';
 import 'package:trivia_app/screens/auth/reset%20password/reset_password.dart';
 import 'package:trivia_app/screens/auth/signup/signup_screen_2.dart';
+import 'package:trivia_app/screens/create%20quiz/create_quiz.dart';
+import 'package:trivia_app/screens/home/home_screen.dart';
+import 'package:trivia_app/screens/leaderboard%20screen/leaderboard_screen.dart';
 
 import '../constants/app_routes.dart';
 import '../screens/auth/login/login_screen.dart';
@@ -79,17 +84,14 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.
-          home: const LoginSignupScreen(),
+          home: const MainScreen(),
+          // home: const LoginSignupScreen(),
           // home: const TopLevel(),
           // home: const LandingScreen(),
           // home: const UserProfile(),
 
           getPages: [
-            // GetPage(
-            //   name: AppRoutes.topLevelRoute,
-            //   page: () => const TopLevel(),
-            // ),
-
+            //Authentication routes
             GetPage(
               name: AppRoutes.loginRoute,
               page: () => const LoginScreen(),
@@ -114,6 +116,32 @@ class MyApp extends StatelessWidget {
               name: AppRoutes.newPasswordRoute,
               page: () => const NewPasswordScreen(),
               title: 'Verify your account',
+            ),
+
+            //MAIN SCREEN BOTTOM NAVIGATION ROUTES
+            GetPage(
+              name: AppRoutes.mainScreenRoute,
+              page: () => const MainScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.homeRoute,
+              page: () => const HomeScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.discoverRoute,
+              page: () => const DiscoverScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.createQuizRoute,
+              page: () => const CreateQuizScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.leaderBoardRoute,
+              page: () => const LeaderboardScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.mainScreenRoute,
+              page: () => const MainScreen(),
             ),
           ],
         );
