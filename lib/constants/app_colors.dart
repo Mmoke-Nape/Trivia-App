@@ -5,6 +5,7 @@ class AppColors {
   static const royalBlue = Color(0xff6a5ae0);
   static const dullLavender = Color(0xff9087e5);
   static const pinkSalmon = Color(0xffff8fa2);
+  static const lightLavender = Color(0xffefeefc);
 
   // accent colors
   static const pastelPink = Color(0xffffd6dd);

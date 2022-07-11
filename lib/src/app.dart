@@ -69,6 +69,7 @@ class MyApp extends StatelessWidget {
           // SettingsController to display the correct theme.
           theme: ThemeData(
             scaffoldBackgroundColor: AppColors.grey5,
+            primaryColor: AppColors.royalBlue,
             textTheme: TextTheme(
               headline1: GoogleFonts.rubik()
                   .copyWith(fontSize: 32, fontWeight: FontWeight.bold),
@@ -138,6 +139,14 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: AppRoutes.leaderBoardRoute,
               page: () => const LeaderboardScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.mainScreenRoute,
+              page: () => const MainScreen(),
+            ),
+            GetPage(
+              name: AppRoutes.chooseCategoryRoute,
+              page: () => const MainScreen(),
             ),
             GetPage(
               name: AppRoutes.mainScreenRoute,
