@@ -8,6 +8,7 @@ class AppRoutes {
   static const resetPasswordRoute = '/reset_password';
   static const newPasswordRoute = '/new_password';
   static const topLevelRoute = '/toplevel';
+
   // bottom navgiation routes
   static const mainScreenRoute = '/main_screen';
   static const homeRoute = '/home';

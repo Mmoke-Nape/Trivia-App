@@ -70,7 +70,7 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         // height: size.height,
-        margin: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
+        margin: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 10),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
           color: Colors.white,
@@ -178,7 +178,7 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
             const SizedBox(height: 20),
             Spacer(),
             CustomButton(
-              title: 'Choose Category',
+              title: 'Add Questions',
               press: () {
                 Get.toNamed(AppRoutes.chooseCategoryRoute);
               },

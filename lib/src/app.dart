@@ -17,6 +17,8 @@ import '../constants/app_routes.dart';
 import '../screens/auth/login/login_screen.dart';
 import '../screens/auth/loginSignup/login_signup_screen.dart';
 import '../screens/auth/signup/signup_screen.dart';
+import '../screens/create quiz/add question/add_question.dart';
+import '../screens/create quiz/choose category/choose_category_screen.dart';
 import 'settings/settings_controller.dart';
 
 /// The Widget that configures your application.
@@ -146,11 +148,11 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: AppRoutes.chooseCategoryRoute,
-              page: () => const MainScreen(),
+              page: () => const ChooseCategoryScreen(),
             ),
             GetPage(
-              name: AppRoutes.mainScreenRoute,
-              page: () => const MainScreen(),
+              name: AppRoutes.addQuestionsRoute,
+              page: () => const AddQuestionsScreen(),
             ),
           ],
         );

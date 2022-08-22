@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trivia_app/screens/Discover/widgets/badge_icon_clipper.dart';
 
 import '../../constants/app_colors.dart';
+import '../../widgets/category_item.dart';
 
 class DiscoverScreen extends StatefulWidget {
   const DiscoverScreen({Key? key}) : super(key: key);
@@ -211,21 +212,21 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   ),
                   const SizedBox(height: 20),
                   const CategoryItem(
-                    icon: Icons.science_outlined,
+                    icon: 'assets/icons/quiz categories/science.svg',
                     numberQuizzes: 12,
                     title: 'Science',
                     color: AppColors.royalBlue,
                   ),
                   const SizedBox(height: 10),
                   const CategoryItem(
-                    icon: Icons.sports_basketball,
+                    icon: 'assets/icons/quiz categories/basketball_hoop.svg',
                     numberQuizzes: 18,
                     title: 'Sports',
                     color: Colors.teal,
                   ),
                   const SizedBox(height: 10),
                   const CategoryItem(
-                    icon: Icons.headphones,
+                    icon: 'assets/icons/quiz categories/music.svg',
                     numberQuizzes: 15,
                     title: 'Music',
                     color: Colors.pink,
@@ -235,68 +236,6 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CategoryItem extends StatelessWidget {
-  const CategoryItem({
-    Key? key,
-    required this.title,
-    required this.numberQuizzes,
-    required this.icon,
-    required this.color,
-  }) : super(key: key);
-
-  final String title;
-  final int numberQuizzes;
-  final IconData icon;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height * .2,
-      width: size.width * .4,
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(17),
-        color: color,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            height: 50,
-            width: 50,
-            // padding: const EdgeInsets.symmetric(vertical: 5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(17),
-              color: const Color.fromARGB(77, 255, 255, 255),
-            ),
-            child: Icon(
-              icon,
-              color: Colors.white,
-            ),
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
-              color: Colors.white,
-            ),
-          ),
-          Text(
-            '$numberQuizzes Quizzes',
-            style: const TextStyle(
-              fontSize: 13,
-              color: Colors.white,
-            ),
-          ),
-        ],
       ),
     );
   }
